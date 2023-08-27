@@ -1,3 +1,4 @@
-# cmesias.github.io
+# odin-recipes
+This website will include links to recipes.
 
-Website here: https://cmesias.github.io
+It will use HTML/CSS.
