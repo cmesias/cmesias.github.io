@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080c17" />
+  <meta name="description" content="NEON / QUANT: AI-assisted intraday stock paper trading with $10K/$50K virtual account simulations." />
+  <title>NEON / QUANT — AI Intraday Lab</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./preview.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <div class="showcase-banner">✦ PUBLIC INTERACTIVE SHOWCASE — 100% FICTIONAL PRICES &amp; SAMPLE TRADES • NO REAL AI • NO REAL MONEY</div>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">N<span>∕</span>Q</div><div><div class="brand-title">NEON<span>QUANT</span></div><div class="brand-sub">AUTONOMOUS TRADING LAB</div></div></div>
+      <div class="workspace-label">WORKSPACE <span>01</span></div>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-item selected" href="#dashboard"><span class="nav-icon">▦</span> Command center <span class="nav-arrow">↗</span></a>
+        <a class="nav-item" href="#market"><span class="nav-icon">◈</span> Market radar</a>
+        <a class="nav-item" href="#positions"><span class="nav-icon">▤</span> Portfolio</a>
+        <a class="nav-item" href="#backtest"><span class="nav-icon">◷</span> Historical replay</a>
+        <a class="nav-item" href="#trades"><span class="nav-icon">⇅</span> Paper trades</a>
+        <a class="nav-item" href="#activity"><span class="nav-icon">◴</span> Activity log</a>
+      </nav>
+      <div class="sidebar-middle"><div class="tiny-label">INTRADAY LAB / V0.2</div><div class="system-illustration"><div class="orb-ring ring-one"></div><div class="orb-ring ring-two"></div><div class="orb-core">✳</div></div><p>Your market research co-pilot. Built to test ideas, not gamble real capital.</p></div>
+      <div class="sidebar-bottom"><div class="side-status"><span class="status-dot"></span><span id="sidebarMode">PAPER ENGINE ONLINE</span></div><div class="side-foot">SHAREABLE PREVIEW · NO BROKER ORDERS</div></div>
+    </aside>
+
+    <main class="content" id="dashboard">
+      <header class="topbar"><div class="breadcrumb">WORKSPACE <span>/</span> OVERVIEW <span>/</span> <strong>COMMAND CENTER</strong></div><div class="topright"><span class="top-date" id="currentDate">—</span><span class="avatar">CQ</span></div></header>
+      <div class="body-grid">
+        <div class="main-column">
+          <section class="heading-row"><div><div class="eyebrow"><span class="tiny-flash">✦</span> SYSTEM OVERVIEW <span class="slash">/</span> 001</div><h1>AI-powered <em>day trading.</em></h1><p class="intro">Trade a simulated $10K or $50K account. Test aggressive intraday strategies without risking a cent.</p></div><div class="action-set"><button class="btn btn-primary" id="scanBtn">◈ <span>Next minute</span></button><button class="btn btn-outline" id="replayBtn" title="Synthetic demo only; AI is skipped during accelerated replay">↻ <span>Replay +30m</span></button><button class="btn btn-outline" id="autoBtn">▶ <span>Enable auto</span></button></div></section>
+          <div class="market-banner" id="marketBanner"><span class="banner-glyph">◉</span><div><strong id="marketLabel">SYNTHETIC MINUTE-BAR REPLAY</strong><span id="marketNote">FICTIONAL prices; virtual fills only. </span></div><span class="banner-end" id="marketAsOf">—</span></div>
+
+          <section class="sim-console panel" aria-label="Paper account configuration">
+            <div class="sim-console-top"><div><div class="section-kicker">PAPER CAPITAL / RISK LAB</div><h2>Simulation cockpit <span class="paper-dot">● VIRTUAL MONEY</span></h2></div><div class="clock-label">MARKET CLOCK <strong id="marketClock">—</strong></div></div>
+            <div class="sim-console-controls"><label class="field">Virtual account size<select id="capitalSelect"><option value="10000">$10,000 paper</option><option value="50000">$50,000 paper</option></select></label><label class="field">Risk profile<select id="profileSelect"><option value="measured">Measured · 0.5% at risk</option><option value="aggressive">Aggressive · 1% at risk</option></select></label><div class="target-box"><span>DAILY RESEARCH TARGET</span><strong>$50–$100 <i>/ day</i></strong><small>Goal only · never forces entries</small></div></div>
+            <div class="sim-warning">Changing capital resets the entire virtual ledger after confirmation. Changing the risk profile without a reset requires no open positions. Fast replay uses quant-only logic, not AI.</div>
+          </section>
+          <div class="daily-strip"><span>SESSION P&amp;L <strong id="dayPnl">$0.00</strong></span><span>REALIZED TODAY <strong id="realizedToday">$0.00</strong></span><span>ENTRIES TODAY <strong id="entriesToday">0</strong></span><span>EXECUTION <strong>PAPER ONLY</strong></span></div>
+          <div class="stats-grid" aria-label="Paper trading account summary">
+            <article class="stat-card featured"><div class="stat-top"><span>PAPER ACCOUNT EQUITY</span><span class="glyph">◇</span></div><div class="value" id="equity">$—</div><div class="stat-foot"><span class="delta" id="pnlPercent">—</span><span>vs contributions</span></div></article>
+            <article class="stat-card"><div class="stat-top"><span>AVAILABLE CASH</span><span class="glyph">⌁</span></div><div class="value" id="cash">$—</div><div class="stat-foot"><span id="holdingsCount">0 positions</span><span>paper only</span></div></article>
+            <article class="stat-card"><div class="stat-top"><span>REALIZED WIN RATE</span><span class="glyph">⌘</span></div><div class="value" id="winRate">—</div><div class="stat-foot"><span id="closedTrades">0 closed trades</span><span>not a forecast</span></div></article>
+            <article class="stat-card"><div class="stat-top"><span>CURRENT DRAWDOWN</span><span class="glyph">⌄</span></div><div class="value" id="drawdown">—</div><div class="stat-foot"><span>from high-water mark</span><span>profile-based guardrail</span></div></article>
+          </div>
+
+          <section class="panel chart-panel"><div class="panel-head"><div><div class="section-kicker">01 / PORTFOLIO</div><h2>Equity trajectory</h2></div><span class="data-chip"><span class="pulse-dot"></span><span id="chartSubhead">PAPER ACCOUNT</span></span></div><div class="chart-summary"><div><span class="label-light">NET RETURN</span><div class="chart-return" id="pnl">$—</div></div><span class="chart-hint" id="chartHint">Account value as minute bars are processed</span></div><div class="chart-area"><div class="gridline g1"></div><div class="gridline g2"></div><div class="gridline g3"></div><div class="gridline g4"></div><svg id="equityGraph" viewBox="0 0 760 210" preserveAspectRatio="none" role="img" aria-label="Paper equity history chart"><defs><linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34edcf" stop-opacity=".22"/><stop offset="100%" stop-color="#34edcf" stop-opacity="0"/></linearGradient></defs><path id="areaPath" fill="url(#chartFill)" d=""/><path id="linePath" stroke="#44f6d5" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" d=""/><circle id="endPoint" r="5" fill="#44f6d5" cx="0" cy="0"/></svg><div class="chart-empty" id="chartEmpty">Run a scan to begin recording your equity curve.</div></div><div class="chart-axis"><span id="chartStart">START</span><span>PAPER ONLY · NOT PREDICTIVE</span><span id="chartEnd">NOW</span></div></section>
+
+          <section class="panel radar-panel" id="market"><div class="panel-head"><div><div class="section-kicker">02 / MARKET INTELLIGENCE</div><h2>Market radar</h2></div><span class="muted-tag">WATCHLIST / 05 ASSETS</span></div><div class="radar-table-wrap"><table class="radar-table"><thead><tr><th>ASSET</th><th>MARK / SHARE</th><th>1-MIN Δ</th><th>TREND</th><th>SIGNAL</th></tr></thead><tbody id="marketRows"><tr><td colspan="5" class="table-placeholder">Initializing market feed...</td></tr></tbody></table></div><div class="panel-foot">Demo uses entirely fictional minute bars. Alpaca IEX is genuine but limited-venue data; stale or gapped prices block trading. All fills are simulated.</div></section>
+
+          <section class="panel historical-panel" id="backtest"><div class="panel-head"><div><div class="section-kicker">03 / HISTORICAL REAL-DATA LAB</div><h2>IEX minute-bar replay <span class="historical-tag">RESEARCH ONLY</span></h2></div><span class="data-chip">SIDE-BY-SIDE / $10K VS $50K</span></div>
+            <p class="history-intro">Test the same intraday strategy against actual historical one-minute IEX candles for a completed US trading day. Pending entries fill at the <strong>next minute open</strong>, with modeled costs and stop-first exits. AI does not participate in this retrospective test.</p>
+            <div class="history-actions"><label class="field">Choose a completed session<input type="date" id="historyDate" aria-label="Historical session date" /></label><button class="btn btn-primary" id="historyBtn">◷ Run real-data replay</button><span id="historyConnection" class="history-connection">Checking Alpaca credentials…</span></div>
+            <div id="historyStatus" class="history-status">Connect Alpaca data keys to test real market candles. The local synthetic replay above remains available without keys.</div>
+            <div class="blotter-scroll"><table class="blotter-table"><thead><tr><th>PAPER CAPITAL</th><th>RISK PROFILE</th><th>NET P&amp;L</th><th>WIN RATE</th><th>ROUND TRIPS</th><th>MAX DRAWDOWN</th><th>SPY HOLD P&amp;L</th></tr></thead><tbody id="historyRows"><tr><td colspan="7" class="empty-state">No historical session tested yet.</td></tr></tbody></table></div>
+            <div class="panel-foot">Source: Alpaca IEX only; fewer trades than all US exchanges. Results are hypothetical, not a forecast. Partial bars, brokerage fills, liquidity impact and corporate actions can differ materially from this simulation. No orders are sent.</div>
+          </section>
+          <section class="panel blotter-panel" id="trades"><div class="panel-head"><div><div class="section-kicker">03 / EXECUTION REVIEW</div><h2>Paper execution blotter</h2></div><span class="data-chip" id="blotterCount">0 SIMULATED FILLS</span></div><div class="blotter-scroll"><table class="blotter-table"><thead><tr><th>TIME (ET)</th><th>ASSET</th><th>SIDE</th><th>QUANTITY</th><th>FILL PRICE</th><th>NOTIONAL</th><th>CLOSED P&amp;L</th></tr></thead><tbody id="tradeRows"><tr><td colspan="7" class="empty-state">No paper trades yet.</td></tr></tbody></table></div><div class="panel-foot">Fills are virtual estimates. Includes modeled half-spread + slippage; no broker, order queue, commissions or guaranteed executions. Stop-first when a candle touches both stop and target.</div></section>
+          <div class="bottom-grid"><section class="panel" id="positions"><div class="panel-head"><div><div class="section-kicker">03 / ALLOCATIONS</div><h2>Open positions</h2></div><span class="muted-tag" id="positionChip">0 OPEN</span></div><div id="positionsList" class="position-list"><div class="empty-state">No active holdings yet.</div></div></section><section class="panel"><div class="panel-head"><div><div class="section-kicker">04 / SIGNAL MONITOR</div><h2>Strategy signals</h2></div><span class="muted-tag">OR BREAKOUT · VWAP · EMA 9/21</span></div><div id="signalsList" class="signal-list"><div class="empty-state">Run a strategy scan to generate signals.</div></div></section></div>
+        </div>
+
+        <aside class="right-column"><section class="agent-panel"><div class="agent-head"><span class="agent-logo">✳</span><span>AI TRADE ANALYST <strong>V0.2</strong></span><span class="agent-led"></span></div><div class="agent-orbit"><div class="orbit orbit1"></div><div class="orbit orbit2"></div><div class="orbit orbit3"></div><div class="agent-symbol">✳</div><div class="orbit-cross">+</div></div><h2>Guardian protocol</h2><p>Opening-range, VWAP and volume signals. AI reviews candidate entries; hard risk gates control all simulated orders.</p><div class="agent-pills"><span class="pill pill-safe">● PAPER ONLY</span><span class="pill" id="aiStatus">AI OFFLINE</span></div><div class="agent-readout"><div><span>ENGINE STATE</span><strong id="engineState">IDLE</strong></div><div><span>MARKET SESSION</span><strong id="sessionState">—</strong></div><div><span>STRATEGY SCANS</span><strong id="scanCount">0</strong></div><div><span>LAST SCAN</span><strong id="lastScan">NEVER</strong></div></div><div class="agent-note"><div class="note-icon">✦</div><div><strong>AI ANALYST BRIEF</strong><p id="aiNote">Add an OpenAI key for cautious AI review of quantitative signals.</p></div></div></section>
+
+          <section class="panel controls-panel"><div class="panel-head"><div><div class="section-kicker">05 / OPERATOR CONSOLE</div><h2>Risk controls</h2></div><span class="muted-tag">HARD LIMITS</span></div><div class="control-row"><div><strong>Autonomous scans</strong><span id="autoDescription">Manual operation</span></div><label class="switch"><input type="checkbox" id="autoToggle" aria-label="Enable scheduled paper scans"/><span class="switch-track"></span></label></div><div class="control-row"><div><strong>Emergency stop</strong><span>Halt all paper fills</span></div><label class="switch danger-switch"><input type="checkbox" id="killToggle" aria-label="Enable emergency stop"/><span class="switch-track"></span></label></div><div class="risk-details"><div><span>PER-TRADE RISK</span><strong id="riskPerTrade">—</strong></div><div><span>DAILY LOSS LIMIT</span><strong id="dailyLossLimit">—</strong></div><div><span>MAX DRAWDOWN</span><strong id="peakLimit">—</strong></div><div><span>MAX ENTRIES / DAY</span><strong id="dailyEntryLimit">—</strong></div><div><span>MODELED COST / SIDE</span><strong id="frictionCost">—</strong></div></div><button id="resetBtn" class="reset-button">↺ Reset to selected virtual account</button></section>
+
+          <section class="panel activity-panel" id="activity"><div class="panel-head"><div><div class="section-kicker">06 / EXECUTION LOG</div><h2>Activity stream</h2></div><span class="live-indicator"><span class="status-dot"></span>LOCAL</span></div><div class="activity-list" id="activityList"><div class="empty-state">No activity recorded.</div></div></section>
+          <div class="foot-disclaimer"><span>!</span><p><strong>RESEARCH PROTOTYPE.</strong> Simulated fills are not market executions. Fictional replay is not a backtest. IEX paper trading is not actual broker execution. No profits or earnings are assured.</p></div>
+        </aside>
+      </div>
+      <footer>NEON / QUANT <span>© 2026 · BUILT FOR EXPERIMENTATION</span><span>VIRTUAL ORDER EXECUTION · NEVER LIVE</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
